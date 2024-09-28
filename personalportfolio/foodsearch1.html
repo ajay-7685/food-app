@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>food Search</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="css/stylep.css">
+    <link rel="stylesheet" href="css/contact1.css">
+    <!-- <link rel="stylesheet" href="css/productsearch1.css"> -->
+    <link rel="stylesheet" href="productsearch2.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<style type="text/css">
+		*{
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        body{
+            background-color: white;
+            color: orange;
+            font-family: 'Poppins', sans-serif;
+        }
+        nav{
+        	display: flex;
+        	justify-content: space-around;
+        	align-items: center;
+        	height: 60px;
+            background-color: #fff;
+
+        }
+        /* header{
+        	box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+        } */
+
+        .fixed-header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              background-color: white;
+              z-index: 100; /* Add a z-index to ensure it appears above other elements */
+              box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Add a shadow for a visual effect */
+         }
+
+
+        nav ul{
+        	display: flex;
+            justify-content: center;
+         }
+        nav ul li{
+            list-style: none;
+            margin: 0 20px;
+            cursor: pointer;
+            
+        }
+        nav ul li a{
+        	text-decoration: none;
+        	color: black;
+        }
+        a:hover,a.active{
+        	color: orange;
+        }
+        main hr{
+            border: 0;
+            background: black;
+            height: 0.1em;
+            margin: 40px 182px;
+        }
+        .left{
+        	margin-right: 550px;
+        }
+        .left1{
+            margin-left: 59px;
+            margin-top: -44px;
+            font-size: 20px;
+        }
+        .image-top{
+            width: 50px;
+            height: 50px;
+            position: relative;
+
+        }
+        .firstsection{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 110px 0px;
+        }
+        .leftsection{
+            font-size: 2.5rem;
+          margin: 30px 0;
+        }
+        .leftsection1{
+            font-size: 1.5rem;
+          margin: 30px 0;
+        }
+        .leftsection1 p{
+            color: black;
+        }
+        .leftsection1 .purple2{
+            color: black;
+        }
+        .leftsection1 .heading1{
+            color: black;
+            padding: 14px;
+            margin: 0px -14px;
+        }
+        .leftsection1 button{
+            padding: 12px;
+            background: orange;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .leftsection1 .btn:hover{
+            background-color: black;
+        }
+        .purple1
+        {
+            color: orange;
+        }
+        .purple{
+            color: black;
+        }
+        .leftsection button{
+            padding: 12px;
+            background: orange;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .leftsection .btn:hover{
+            background-color: black;
+        }
+        .rightsection img{
+            width: 80%;
+           margin: 50px 0;
+           
+        }
+        .firstsection >div{
+            width: 30%;
+        }
+        footer{
+            background-color: #fff;
+           }
+        .footer{
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+            color: black;
+        }
+        .footer ul{
+            list-style: none;
+        }
+        .footer >div{
+            width: 223px;
+        }
+        footer .text-center{
+            color: gray;
+            text-align: center;
+            padding: 12px 0;
+        }
+
+        /* cart */
+        /* Styles for the cart icon */
+
+
+
+#cart-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    margin-bottom: 5px;
+}
+
+/* Styles for the order buttons */
+#cart-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: auto; 
+    /* Adjust width as needed */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+#cart-items {
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd; /* Add a border between items */
+    padding-bottom: 5px; /* Add some spacing between items */
+}
+
+#cart-items li:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+#cart-items li span {
+    display: inline-block;
+    width: 150px; /* Adjust width as needed */
+    margin-right: 10px; /* Add some spacing between item name and price */
+}
+
+#proceed-to-payment {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#proceed-to-payment:hover {
+    background-color: darkorange;
+}
+
+.hidden {
+    display: none;
+}
+
+       
+	</style>
+</head>
+<body>
+	<header class="fixed-header">
+        <nav>
+            <div class="left">
+            	<img src="Crispys_logo1.png" alt="developer" class="image-top">
+                <p class="left1">Food portfolio</p>
+            </div>
+            <div class="right">
+                <ul>
+                
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#search">search</a></li>
+                <li><a href="#contact">Contact</a></li>
+               
+                </ul>
+            </div>
+            <!-- Add this HTML for the cart icon in the header -->
+            <div id="cart-icon">
+                <span id="cart-count">0</span>
+                <div id="cart-dropdown" class="hidden">
+                    <ul id="cart-items"></ul>
+                    <button id="proceed-to-payment">Proceed to Payment</button>
+                </div>
+            </div>
+    
+
+        </nav>
+    </header>
+    <main>
+        <section class="firstsection" id="home">
+        <div class="leftsection">Welcome to <span class="purple">Crispys</span>
+            <div>It is a best choice for your taste</div>
+            
+            <span id="element"></span>
+            <div class="buttons">
+                <button class="btn">Search</button>
+                
+            </div>
+        </div>
+        <div class="rightsection">
+            <img src="burger1.png" alt="developer
+            ">
+        </div>
+   
+       </section>
+        <hr>
+        <section class="firstsection" id="about">
+        <div class="leftsection1">
+            <div>
+                <h1 class="heading">About <span class="purple2">Us</span></h1>
+                <h3 class="heading1">Why to choose us?</h3>
+                <p>Order a delicious pizza on the go, anywhere, anytime. <span class="purple1">Pizza</span> Hut is happy to assist you with your home delivery. Every time you order, you get a hot and fresh pizza delivered at your doorstep in lesstime </p>
+            </div>
+            
+            <span id="element"></span>
+            <div class="buttons">
+                <button class="btn">Order</button>
+                
+            </div>
+        </div>
+        <div class="rightsection">
+            <img src="pizza.jpg" alt="developer
+            ">
+        </div>
+         
+       </section>
+       <hr>
+       <section class="services" id="services">
+           <div class="container">
+        <h1 class="heading">Our <span class="purple3">services</span></h1>
+        <div class="box-container">
+
+
+                <div class="box">
+                    <img src="images/burger1.jpg" alt="">
+                    <h1>Burger</h1>
+                    <p>Price: $5.99</p>
+                    <button class="btn" data-price="5.99">Order Now</button>
+                </div>
+                <!-- Add other product boxes here -->
+                <div class="box">
+                    <img src="images/lasagna.jpg" alt="">
+                     <h1>lasagna</h1>
+                    <p>Price: $5.99</p>
+                    <button class="btn" data-price="5.99">Order Now</button>
+                </div>
+
+                <div class="box">
+                    <img src="images/pasta.jpg" alt="">
+                    <h1>Pasta</h1>
+                    <p>Price: $5.99</p>
+                    <button class="btn" data-price="5.99">Order Now</button>
+                </div>
+
+                <div class="box">
+                    <img src="images/pizza.jpg" alt="">
+                    <h1>pizza</h1>
+                    <p>Price: $5.99</p>
+                    <button class="btn" data-price="5.99">Order Now</button>
+                </div>
+
+                <div class="box">
+                    <img src="images/briyani.jpg" alt="">
+                <h1>Briyani</h1>
+                    <p>Price: $5.99</p>
+                    <button class="btn" data-price="5.99">Order Now</button>
+                </div>
+
+                <div class="box">
+                    <img src="images/milkshake.jpg" alt="">
+                <h1>MilkShake</h1>
+                    <p>Price: $5.99</p>
+                    <button class="btn" data-price="5.99">Order Now</button>
+                </div>
+
+            <!-- <div class="box">
+                <img src="images/burger1.jpg" alt="">
+                <h1>Burger</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+            <div class="box">
+                <img src="images/lasagna.jpg" alt="">
+                <h1>lasagna</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+           
+
+            <div class="box">
+                <img src="images/pasta.jpg" alt="">
+                <h1>Pasta</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+            <div class="box">
+                <img src="images/pizza.jpg" alt="">
+                <h1>pizza</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+            <div class="box">
+                <img src="images/briyani.jpg" alt="">
+                <h1>Briyani</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+            <div class="box">
+                <img src="images/milkshake.jpg" alt="">
+                <h1>MilkShake</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+        </div> -->
+    </div>
+       </section>
+       <hr>
+
+       <!-- search product -->
+       
+        <h1 class="search-heading">Our <span class="csearch">search</span></h1>
+       <section class="search" id="search">
+    <div class="container">
+        
+		<form>
+			<i class="fas fa-search"></i>
+			<input id="search-item" type="text" name="" placeholder="Search products" onkeyup="search()">
+
+		</form>
+		<div class="product-list" id="product-list">
+			<div class="product">
+				<img src="pizza.jpg" alt="product1">
+				<div class="p-details">
+					<h2>Pizza for Everyone</h2>
+					<h3>$25</h3>
+				</div>
+			</div>
+
+			<div class="product">
+				<img src="burger.jpg" alt="product1">
+				<div class="p-details">
+					<h2>Burger for Everyone</h2>
+					<h3>$25</h3>
+				</div>
+			</div>
+
+			<div class="product">
+				<img src="mozito.jpeg" alt="product1">
+				<div class="p-details">
+					<h2>Mozito for Every one</h2>
+					<h3>$25</h3>
+				</div>
+			</div>
+			<div class="product">
+				<img src="briyani.jpg" alt="product1">
+				<div class="p-details">
+					<h2>Briyani for Everyone</h2>
+					<h3>$25</h3>
+				</div>
+			</div>
+
+			<div class="product">
+				<img src="mozito.jpeg" alt="product1">
+				<div class="p-details">
+					<h2>Mozito for Everyone</h2>
+					<h3>$25</h3>
+				</div>
+			</div>
+
+			<div class="product">
+				<img src="pizza.jpg" alt="product1">
+				<div class="p-details">
+					<h2>Pizza for Every one</h2>
+					<h3>$25</h3>
+				</div>
+			</div>
+		</div>
+    </div>
+	</section>
+    <hr>
+    <section class="contact" id="contact">
+        <div class="contact">
+            <div class="content">
+                <!-- left side -->
+                <div class="left-side">
+                    <!-- address details -->
+                    <div class="address details">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <div class="topic">Address</div>
+                      <div class="text-one">Shila Nagar,NP12</div>
+                      <div class="text-two">Vishakapatanam</div>
+                    </div>
+                    <!-- phone details -->
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+91 7981896657</div>
+                        <div class="text-two">+91 7981896658</div>
+                    </div>
+    
+                    <!-- email detials -->
+                    <div class="email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one">Ajaykumar02@gmail.com</div>
+                        <div class="text-two">info.Vijaykumar03@gmail.com</div>
+                      </div>
+                </div>
+                <!-- right side -->
+                <div class="right-side">
+                    <div class="topic-text">Send us a message</div>
+                    <p>If you have any work from me or any types of quries on my orders,You 
+                        can send me message from here .it's my pleasure to help you.</p>
+                
+                 <form action="#">
+                    <div class="input-box">
+                        <input type="text" placeholder="enter your name">
+                    </div>
+                    <div class="input-box">
+                        <input type="text" placeholder="enter your email">
+                    </div>
+                    <div class="input-box message-box">
+                        <textarea ></textarea>
+                    </div>
+                    <div class="button">
+                        <input type="button" value="Send Now">
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Food portfolio</h3>
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center">
+            Copyright &#169; crispyportfolio.com | All rights reserved
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="script.js">
+		
+	</script>
+    <script type="text/javascript" src="searchp.js">
+		
+	</script>
+    <script>    
+        document.addEventListener("DOMContentLoaded", function() {
+    const cartIcon = document.getElementById('cart-icon');
+    const cartCount = document.getElementById('cart-count');
+    const cartDropdown = document.getElementById('cart-dropdown');
+    const cartItems = document.getElementById('cart-items');
+    const orderButtons = document.querySelectorAll('.box .btn');
+    const proceedToPaymentBtn = document.getElementById('proceed-to-payment');
+    const cart = {};
+
+    // Add event listeners to order buttons
+    orderButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            const item = event.target.closest('.box');
+            const itemName = item.querySelector('h1').innerText;
+            const itemPrice = parseFloat(item.querySelector('p').innerText.split('$')[1]);
+            
+            // Add item to cart or increase its quantity
+            if (cart[itemName]) {
+                cart[itemName].quantity++;
+            } else {
+                cart[itemName] = { price: itemPrice, quantity: 1 };
+            }
+
+            updateCartIcon();
+        });
+    });
+
+    // Update the cart icon with the total count
+    function updateCartIcon() {
+        let totalCount = 0;
+        for (const item in cart) {
+            totalCount += cart[item].quantity;
+        }
+        cartCount.innerText = totalCount;
+
+        // Update cart items in the dropdown
+        updateCartDropdown();
+    }
+
+    // Update cart items in the dropdown
+    function updateCartDropdown() {
+        cartItems.innerHTML = '';
+    let totalPrice = 0;
+    for (const item in cart) {
+        const { price, quantity } = cart[item];
+        totalPrice += price * quantity;
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item} - $${price.toFixed(2)} x ${quantity}`;
+        cartItems.appendChild(listItem);
+    }
+    if (Object.keys(cart).length > 0) {
+        const totalItem = document.createElement('li');
+        totalItem.textContent = `Total: $${totalPrice.toFixed(2)}`;
+        cartItems.appendChild(totalItem);
+    }
+    cartDropdown.classList.toggle('hidden', Object.keys(cart).length === 0);
+    proceedToPaymentBtn.disabled = Object.keys(cart).length === 0;
+    }
+
+    // Proceed to payment button
+    proceedToPaymentBtn.addEventListener('click', function() {
+        alert('Redirecting to payment page...');
+    });
+
+    // Show/hide cart dropdown on cart icon hover
+    cartIcon.addEventListener('mouseenter', function() {
+        updateCartDropdown();
+    });
+
+    cartIcon.addEventListener('mouseleave', function() {
+        cartDropdown.classList.add('hidden');
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+        const proceedToPaymentBtn = document.getElementById('proceed-to-payment');
+
+        // Proceed to payment button
+        proceedToPaymentBtn.addEventListener('click', function() {
+            // Redirect to another HTML page
+            window.location.href = "payment.html"; // Change "payment.html" to the desired HTML page
+        });
+    });
+
+    </script>
+</body>
+</html>
